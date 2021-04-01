@@ -1,3 +1,25 @@
+# Netflix
+
+> By: Mohamed Fawzy
+
+## About
+
+Netflix clone -- Fronend (React app) with live data using TMDB API, deployed using Firebase
+
+### Application link:
+
+- [Netflix](https://netflix-442be.web.app)
+
+### Skills used for this project
+
+- ReactJS
+- React Hooks
+- Firebase
+- TMDB API
+- HTML
+- CSS
+- Javasript
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
