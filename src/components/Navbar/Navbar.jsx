@@ -1,8 +1,24 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import "./Navbar.css";
 
 function Navbar() {
+  const [show, setShow] = useState(false);
+
+  // Handle black background on scrolling
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 150) {
+        setShow(true);
+      } else setShow(false);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", null);
+    };
+  }, []);
+
   return (
-    <div className="navbar">
+    <div className={`navbar ${show && "navbar_black"}`}>
       <img
         src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg"
         alt="Netflix Logo"
@@ -12,7 +28,7 @@ function Navbar() {
       <img
         src="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png"
         alt="Netlix User"
-        className="navbar__avatar"
+        className="navbar__user"
       />
     </div>
   );
