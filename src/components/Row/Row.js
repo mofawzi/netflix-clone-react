@@ -5,7 +5,7 @@ import "./Row.css";
 // Default URL for images from TMDB API
 const movieImageBaseUrl = "https://image.tmdb.org/t/p/original/";
 
-const Row = ({ title, fetchUrl }) => {
+const Row = ({ title, fetchUrl, isLargeRow }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -19,6 +19,7 @@ const Row = ({ title, fetchUrl }) => {
     fetchData();
   }, [fetchUrl]);
 
+  console.log(movies);
   return (
     <div className="row">
       <h2>{title}</h2>
@@ -26,9 +27,11 @@ const Row = ({ title, fetchUrl }) => {
         {movies.map((movie) => (
           <img
             key={movie.id}
-            src={`${movieImageBaseUrl}${movie.poster_path}`}
+            src={`${movieImageBaseUrl}${
+              isLargeRow ? movie.poster_path : movie.backdrop_path
+            }`}
             alt={movie.name}
-            className="row__poster"
+            className={`row__poster ${isLargeRow && "row__poster-large"}`}
           />
         ))}
       </div>
