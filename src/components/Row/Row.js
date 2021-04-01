@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import YouTube from "react-youtube";
+import movieTrailer from 'movie-trailer'
 import axios from "../../axios";
 import "./Row.css";
 
@@ -19,7 +21,33 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
     fetchData();
   }, [fetchUrl]);
 
-  console.log(movies);
+  /*
+  // Trailer for movies
+  const [trailerUrl, setTrailerUrl] = useState("");
+
+  const opts = {
+    height: "390",
+    width: "670",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+        autoplay: 1,
+    }
+  }
+
+  const clickHandler = (movie) => {
+    if(trailerUrl) {
+      setTrailerUrl('')
+    } else {
+      movieTrailer(movie?.title || movie?.name || movie?.original_name|| "")
+      .then(url => {
+        const urlParams = new URLSearchParams (new URL(url).search);
+        setTrailerUrl(urlParams.get("v"))
+      })
+      .catch (err => console.error)
+    }
+  }
+*/
+
   return (
     <div className="row">
       <h2>{title}</h2>
@@ -32,9 +60,11 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
             }`}
             alt={movie.name}
             className={`row__poster ${isLargeRow && "row__poster-large"}`}
+            // onClick={clickHandler(movie)}
           />
         ))}
       </div>
+      {/* {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />} */}
     </div>
   );
 };
