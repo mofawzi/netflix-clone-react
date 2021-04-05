@@ -1,6 +1,6 @@
-import Row from "../Row/Row";
-import Banner from "../Banner/Banner";
-import requests from "../../requests";
+import Row from "../../Row/Row";
+import Banner from "../../Banner/Banner";
+import requests from "../../../requests";
 
 
 const HomeScreen = () => {
