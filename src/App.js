@@ -1,6 +1,5 @@
 import "./App.css";
 import HomeScreen from "./components/screens/HomeScreen/HomeScreen";
-import Navbar from "./components/Navbar/Navbar";
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,7 +12,7 @@ function App() {
   const user = null;
   return (
     <div className="App">
-      <Navbar />
+      
       <Router>
         {!user ? (
           <LoginScreen />

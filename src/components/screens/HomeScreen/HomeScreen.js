@@ -1,11 +1,12 @@
 import Row from "../../Row/Row";
 import Banner from "../../Banner/Banner";
 import requests from "../../../requests";
-
+import Navbar from "../../Navbar/Navbar.jsx";
 
 const HomeScreen = () => {
   return (
     <div>
+      <Navbar />
       <Banner />
       <Row
         title="NETFLIX ORIGINALS"
