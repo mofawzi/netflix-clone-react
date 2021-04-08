@@ -1,10 +1,11 @@
 import React from 'react'
 import './ProfileScreen.css'
+import Navbar from "../../Navbar/Navbar.jsx";
 
 const ProfileScreen = () => {
   return (
     <div className="profileScreen">
-      <h2>My Profile</h2>
+      <Navbar />
     </div>
   )
 }
