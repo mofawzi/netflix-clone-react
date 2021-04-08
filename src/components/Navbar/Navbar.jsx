@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
   const [show, setShow] = useState(false);
+  const history = useHistory();
 
   // Handle black background on scrolling
   useEffect(() => {
@@ -29,6 +31,7 @@ function Navbar() {
         src="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png"
         alt="Netlix User"
         className="navbar__user"
+        onClick={()=> history.push("/profile")}
       />
     </div>
   );
