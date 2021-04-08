@@ -23,6 +23,7 @@
 
 .navbar__user {
   position: fixed;
+  cursor: pointer;
   right: 20px;
   width: 30px;
   object-fit: contain;
