@@ -8,17 +8,23 @@ import {
 import LoginScreen from "./components/screens/LoginScreen/LoginScreen.jsx";
 import { useEffect } from "react";
 import { auth } from "./firebase";
+import {useDispatch, useSelector} from 'react-redux'
+import {login, logout, selectUser} from './store/reducers/UserReducer'
 
 
 function App() {
-  const user = null;
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(userAuth => {
-      if(userAuth){
+      if (userAuth) {
         // User is logged in
-        console.log(userAuth);
+        dispatch(login({
+          uid: userAuth.uid,
+          email: userAuth.email
+        }))
       } else {
-
+        dispatch(logout)
       }
     })
 
@@ -27,18 +33,18 @@ function App() {
   }, [])
   return (
     <div className="App">
-      
+
       <Router>
         {!user ? (
           <LoginScreen />
         ) : (
           <Switch>
-          <Route exact path="/">
-            <HomeScreen />
-          </Route>
-        </Switch>
+            <Route exact path="/">
+              <HomeScreen />
+            </Route>
+          </Switch>
         )}
-        
+
       </Router>
     </div>
   );
