@@ -13,6 +13,7 @@ Netflix clone -- Fronend (React app) with live data using TMDB API, deployed usi
 ### Skills used for this project
 
 - ReactJS
+- Redux
 - React Hooks
 - Firebase
 - TMDB API
