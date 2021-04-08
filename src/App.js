@@ -1,5 +1,6 @@
 import "./App.css";
 import HomeScreen from "./components/screens/HomeScreen/HomeScreen";
+import ProfileScreen from "./components/screens/ProfileScreen/ProfileScreen.jsx";
 import {
   BrowserRouter as Router,
   Switch,
@@ -39,6 +40,9 @@ function App() {
           <LoginScreen />
         ) : (
           <Switch>
+            <Route exact path="/profile">
+              <ProfileScreen />
+            </Route>
             <Route exact path="/">
               <HomeScreen />
             </Route>
